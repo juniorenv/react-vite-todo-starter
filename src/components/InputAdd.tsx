@@ -1,3 +1,4 @@
+import InputAddStyles from "./InputAdd.module.css";
 import { useState } from "react";
 
 interface IInputAddProps {
@@ -15,7 +16,7 @@ export function InputAdd({ onAdd }: IInputAddProps) {
   };
 
   return (
-    <div>
+    <div className={InputAddStyles.Container}>
       <input
         value={inputValue}
         onKeyDown={(e) => {
