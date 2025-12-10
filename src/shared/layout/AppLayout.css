@@ -29,6 +29,7 @@ body,
 .header-layout a {
   padding: 8px;
   border-radius: 5px;
+  text-decoration: none;
   color: white;
 }
 .header-layout a:hover {
