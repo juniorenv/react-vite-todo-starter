@@ -1,5 +1,6 @@
 import {
   createContext,
+  useCallback,
   useContext,
   useState,
   type PropsWithChildren,
@@ -19,12 +20,15 @@ export function AuthProvider({ children }: PropsWithChildren) {
   const [email, setEmail] = useState<string>();
   const [accessToken, setAccessToken] = useState<string>();
 
-  const logout = () => {};
+  const logout = useCallback(() => {
+    setEmail(undefined);
+    setAccessToken(undefined);
+  }, []);
 
-  const login = (email: string, password: string) => {
+  const login = useCallback((email: string, password: string) => {
     setEmail(email);
     setAccessToken(crypto.randomUUID());
-  };
+  }, []);
 
   return (
     <AuthContext.Provider value={{ login, logout, email, accessToken }}>
@@ -39,8 +43,6 @@ export const useAuthContext = () => {
 
 export const useIsAuthenticated = () => {
   const { accessToken } = useAuthContext();
-
-  console.log(accessToken);
 
   return accessToken !== undefined;
 };
