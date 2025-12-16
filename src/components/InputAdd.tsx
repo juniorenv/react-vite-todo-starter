@@ -1,4 +1,3 @@
-import InputAddStyles from "./InputAdd.module.css";
 import { useRef, useState } from "react";
 
 interface IInputAddProps {
@@ -18,8 +17,9 @@ export function InputAdd({ onAdd }: IInputAddProps) {
   };
 
   return (
-    <div className={InputAddStyles.Container}>
+    <div className="flex gap-2 p-2">
       <input
+        className="flex-1 p-2 text-base border border-black/12 rounded-sm pl-3 pr-3 outline-none focus:border-gray-300 focus:shadow-[0_1px_0_#c9c9c9]"
         value={inputValue}
         onKeyDown={(e) => {
           if (e.key === "Enter") handleAdd();
@@ -27,7 +27,12 @@ export function InputAdd({ onAdd }: IInputAddProps) {
         ref={inputRef}
         onChange={(event) => setInputValue(event.target.value)}
       />
-      <button onClick={handleAdd}>Add to list</button>
+      <button
+        className="text-base border-none p-2 text-white cursor-pointer rounded-sm pl-3 pr-3 bg-green-500 hover:bg-green-600 active:bg-green-700"
+        onClick={handleAdd}
+      >
+        Add to list
+      </button>
     </div>
   );
 }

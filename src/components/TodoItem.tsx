@@ -1,5 +1,3 @@
-import TodoItemStyles from "./TodoItem.module.css";
-
 export interface ITodoItem {
   id: string;
   label: string;
@@ -7,6 +5,9 @@ export interface ITodoItem {
 }
 
 export interface ITodoItemWithoutId extends Omit<ITodoItem, "id"> {}
+
+const buttonClasses =
+  "border-none p-2 text-white cursor-pointer rounded-sm pl-3 pr-3";
 
 interface ITodoItemProps extends ITodoItem {
   onComplete(): void;
@@ -21,19 +22,26 @@ export function TodoItem({
   onRemove,
 }: ITodoItemProps) {
   return (
-    <li key={id} className={TodoItemStyles.Item} data-complete={completed}>
-      <span className={TodoItemStyles.Text}>{label}</span>
+    <li
+      className="flex p-2 rounded-sm items-center justify-between hover:bg-[#f1f1f1]"
+      key={id}
+      data-complete={completed}
+    >
+      <span className={completed ? "line-through" : ""}>{label}</span>
 
-      <div className={TodoItemStyles.ButtonGroup}>
+      <div className="flex gap-2">
         {!completed && (
           <button
+            className={`${buttonClasses} bg-green-500 hover:bg-green-600 active:bg-green-700`}
             onClick={onComplete}
-            className={TodoItemStyles.ButtonComplete}
           >
             To complete
           </button>
         )}
-        <button onClick={onRemove} className={TodoItemStyles.ButtonRemove}>
+        <button
+          className={`${buttonClasses} bg-rose-600 hover:bg-rose-700 active:bg-rose-800`}
+          onClick={onRemove}
+        >
           To Remove
         </button>
       </div>
