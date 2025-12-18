@@ -11,7 +11,7 @@ export function AppLayout({ children }: PropsWithChildren) {
     }`;
 
   return (
-    <div className="h-full flex flex-col bg-[#f2f2f2]">
+    <div className="h-full flex flex-col bg-neutral-100">
       <div className="flex justify-center p-4 gap-2 bg-green-500">
         <NavLink className={navLinkClasses} to="/">
           Homepage

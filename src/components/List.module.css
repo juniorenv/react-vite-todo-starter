@@ -1,7 +1,0 @@
-.List {
-  padding: 8px;
-  gap: 8px;
-  display: flex;
-  flex-direction: column;
-  list-style-type: none;
-}

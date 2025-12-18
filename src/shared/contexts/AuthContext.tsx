@@ -25,7 +25,7 @@ export function AuthProvider({ children }: PropsWithChildren) {
     setAccessToken(undefined);
   }, []);
 
-  const login = useCallback((email: string, password: string) => {
+  const login = useCallback((email: string, _password: string) => {
     setEmail(email);
     setAccessToken(crypto.randomUUID());
   }, []);
