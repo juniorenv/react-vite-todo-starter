@@ -1,17 +1,27 @@
 import { NavLink } from "react-router";
-import "./AppLayout.css";
 
 import type { PropsWithChildren } from "react";
 
 export function AppLayout({ children }: PropsWithChildren) {
+  const navLinkClasses = ({ isActive }: { isActive: boolean }) =>
+    `py-2 px-3 rounded-lg transition-colors ${
+      isActive
+        ? "bg-white text-black"
+        : "text-white hover:bg-white hover:text-black"
+    }`;
+
   return (
-    <div className="base-layout">
-      <div className="header-layout">
-        <NavLink to="/">Homepage</NavLink>
-        <NavLink to="/about">About</NavLink>
+    <div className="h-full flex flex-col bg-neutral-100">
+      <div className="flex justify-center p-4 gap-2 bg-green-500">
+        <NavLink className={navLinkClasses} to="/">
+          Homepage
+        </NavLink>
+        <NavLink className={navLinkClasses} to="/about">
+          About
+        </NavLink>
       </div>
 
-      <div className="content-layout">{children}</div>
+      <div className="flex-1 overflow-auto">{children}</div>
     </div>
   );
 }

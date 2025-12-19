@@ -1,6 +1,5 @@
-import ListStyles from "./List.module.css";
 import type { PropsWithChildren } from "react";
 
 export function List({ children }: PropsWithChildren) {
-  return <ol className={ListStyles.List}>{children}</ol>;
+  return <ol className="flex flex-col gap-2 p-2 list-none">{children}</ol>;
 }
