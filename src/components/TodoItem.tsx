@@ -7,7 +7,7 @@ export interface ITodoItem {
 export interface ITodoItemWithoutId extends Omit<ITodoItem, "id"> {}
 
 const buttonClasses =
-  "border-none p-2 text-white cursor-pointer rounded-sm pl-3 pr-3";
+  "px-3 py-2 border-none text-white cursor-pointer rounded-sm";
 
 interface ITodoItemProps extends ITodoItem {
   onComplete(): void;
@@ -23,7 +23,7 @@ export function TodoItem({
 }: ITodoItemProps) {
   return (
     <li
-      className="flex p-2 rounded-sm items-center justify-between hover:bg-[#f1f1f1]"
+      className="flex p-2 rounded-sm items-center justify-between hover:bg-gray-100"
       key={id}
       data-complete={completed}
     >

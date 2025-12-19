@@ -46,6 +46,8 @@ export function Login() {
           <input
             id="email"
             type="email"
+            aria-invalid={!!error}
+            aria-describedby={error ? "login-error" : undefined}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className={inputClasses}
@@ -58,19 +60,25 @@ export function Login() {
             id="password"
             type="password"
             value={password}
+            aria-invalid={!!error}
+            aria-describedby={error ? "login-error" : undefined}
             onChange={(e) => setPassword(e.target.value)}
             className={inputClasses}
           />
 
           {error && (
-            <div className="self-stretch rounded-md bg-red-50 p-3 text-sm text-red-800">
+            <div
+              id="login-error"
+              role="alert"
+              className="self-stretch rounded-md bg-red-50 p-3 text-sm text-red-800"
+            >
               {error}
             </div>
           )}
 
           <button
             type="submit"
-            className="text-base border-none p-2 text-white cursor-pointer rounded px-3 self-stretch bg-green-500 hover:bg-green-600 active:bg-green-700"
+            className="px-3 py-2 text-base border-none text-white cursor-pointer rounded self-stretch bg-green-500 hover:bg-green-600 active:bg-green-700"
           >
             Sign in
           </button>
