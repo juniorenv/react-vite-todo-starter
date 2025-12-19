@@ -6,8 +6,7 @@ export interface ITodoItem {
 
 export interface ITodoItemWithoutId extends Omit<ITodoItem, "id"> {}
 
-const buttonClasses =
-  "px-3 py-2 border-none text-white cursor-pointer rounded-sm";
+const buttonClasses = "px-3 py-2 text-white cursor-pointer rounded-sm";
 
 interface ITodoItemProps extends ITodoItem {
   onComplete(): void;
@@ -24,7 +23,6 @@ export function TodoItem({
   return (
     <li
       className="flex p-2 rounded-sm items-center justify-between hover:bg-gray-100"
-      key={id}
       data-complete={completed}
     >
       <span className={completed ? "line-through" : ""}>{label}</span>

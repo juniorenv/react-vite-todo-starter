@@ -30,7 +30,7 @@ export function Login() {
   };
 
   return (
-    <div className="flex h-full w-full items-center justify-center bg-gray-100">
+    <div className="flex h-full w-full items-center justify-center bg-neutral-100">
       <div className="w-full max-w-sm p-6 bg-white rounded-lg shadow-md">
         <form
           onSubmit={handleSubmit}
@@ -78,7 +78,7 @@ export function Login() {
 
           <button
             type="submit"
-            className="px-3 py-2 text-base border-none text-white cursor-pointer rounded self-stretch bg-green-500 hover:bg-green-600 active:bg-green-700"
+            className="px-3 py-2 text-base text-white cursor-pointer rounded self-stretch bg-green-500 hover:bg-green-600 active:bg-green-700"
           >
             Sign in
           </button>
