@@ -14,7 +14,6 @@ interface ITodoItemProps extends ITodoItem {
 }
 
 export function TodoItem({
-  id,
   label,
   completed,
   onComplete,

@@ -30,7 +30,7 @@ export function Login() {
   };
 
   return (
-    <div className="flex h-full w-full items-center justify-center bg-neutral-100">
+    <div className="flex h-full w-full p-4 items-center justify-center bg-neutral-100">
       <div className="w-full max-w-sm p-6 bg-white rounded-lg shadow-md">
         <form
           onSubmit={handleSubmit}
