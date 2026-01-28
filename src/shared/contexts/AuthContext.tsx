@@ -5,6 +5,7 @@ import {
   useState,
   type PropsWithChildren,
 } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 interface IAuthContextProps {
   email: string | undefined;
@@ -27,7 +28,7 @@ export function AuthProvider({ children }: PropsWithChildren) {
 
   const login = useCallback((email: string, _password: string) => {
     setEmail(email);
-    setAccessToken(crypto.randomUUID());
+    setAccessToken(uuidv4());
   }, []);
 
   return (
