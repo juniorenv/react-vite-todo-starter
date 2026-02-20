@@ -124,7 +124,7 @@ The Dockerfile uses a **multi-stage build**:
 docker compose up --build
 ```
 
-The application will be available at `http://localhost:8080`
+The application will be available at `http://localhost`
 
 **Or use Docker directly:**
 
@@ -133,7 +133,7 @@ The application will be available at `http://localhost:8080`
 docker build -t react-vite-todo-starter .
 
 # Run the container
-docker run -p 8080:80 react-vite-todo-starter
+docker run -p 80:80 react-vite-todo-starter
 ```
 
 ### Docker Configuration
@@ -142,20 +142,21 @@ docker run -p 8080:80 react-vite-todo-starter
 
 - Uses Node.js 22 Alpine for building
 - Multi-stage build reduces final image size
-- Nginx Alpine 3.23 for production serving
+- Nginx 1.28.2 Alpine 3.23 for production serving
 - Custom nginx.conf for SPA routing support
 - Static asset caching enabled
 
 **compose.yaml:**
 
 - Container name: `react-vite-app`
-- Port mapping: `8080:80` (host:container)
+- Port mapping: `80:80` (host:container)
 - Builds from current directory
 
 **nginx.conf features:**
 
 - SPA routing support (all routes serve `index.html`)
-- Static asset caching (1 year for JS/CSS/images)
+- Static asset caching (1 year for JS/CSS/images/fonts)
+- Gzip compression for text and script assets
 - Optimized for production serving
 
 ### Customizing Docker Setup
@@ -166,7 +167,7 @@ Edit `compose.yaml`:
 
 ```yaml
 ports:
-  - "3000:80" # Change 8080 to your preferred port
+  - "3000:80" # Change 80 to your preferred port
 ```
 
 ### Docker Cleanup
